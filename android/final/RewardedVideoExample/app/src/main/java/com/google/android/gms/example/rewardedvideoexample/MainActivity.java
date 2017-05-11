@@ -148,6 +148,12 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mRewardedVideoAd.destroy(this);
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         if (!mGameOver && mGamePaused) {

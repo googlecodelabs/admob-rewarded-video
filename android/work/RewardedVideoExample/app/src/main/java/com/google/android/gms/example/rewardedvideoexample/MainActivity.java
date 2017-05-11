@@ -101,6 +101,11 @@ public class MainActivity extends Activity {
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
     private void pauseGame() {
         if (mCountDownTimer != null) {
             mCountDownTimer.cancel();
