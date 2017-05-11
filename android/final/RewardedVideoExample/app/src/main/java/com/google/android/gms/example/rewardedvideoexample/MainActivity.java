@@ -33,8 +33,6 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
  * Main Activity. Inflates main activity xml and implements RewardedVideoAdListener.
  */
 public class MainActivity extends Activity {
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/5224354917";
-    private static final String APP_ID = "ca-app-pub-3940256099942544~3347511713";
     private static final long COUNTER_TIME = 10;
     private static final int GAME_OVER_REWARD = 1;
     private static final String TIME_REMAINING_KEY = "TIME_REMAINING";
@@ -58,7 +56,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // Initialize the Mobile Ads SDK.
-        MobileAds.initialize(this, APP_ID);
+        MobileAds.initialize(this, getString(R.string.admob_app_id));
 
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
 
@@ -189,7 +187,7 @@ public class MainActivity extends Activity {
         mGamePaused = false;
         mGameOver = false;
 
-        mRewardedVideoAd.loadAd(AD_UNIT_ID, new AdRequest.Builder().build());
+        mRewardedVideoAd.loadAd(getString(R.string.ad_unit_id), new AdRequest.Builder().build());
     }
 
     // Create the game timer, which counts down to the end of the level.
